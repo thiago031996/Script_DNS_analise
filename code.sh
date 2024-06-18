@@ -11,7 +11,7 @@ echo -e "=======================================================================
 echo -e "Esse script realiza a consulta ao server DNS para resolução de nomes"
 echo -e "Finalidade: Análise de DNS para resolução de nomes"
 echo -e "Owner_script: Thiago Souza"
-echo -e "Para mais informações acesse o meu github:https://github.com/thiago031996"
+echo -e "Script github:https://github.com/thiago031996/Script_DNS_analise"
 
 echo -e "=========================================================================="
 #DADOS INSERIDOS PELO USUÁRIO
