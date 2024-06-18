@@ -34,4 +34,4 @@ Caso não tenha os pacotes instalados, faça o download. Comando istalação pac
 chmod +x nome_arquivo.sh
 
 #EXECUTANDO SCRIPT:
-.\nome_arquivo.sh
+./nome_arquivo.sh
