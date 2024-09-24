@@ -11,6 +11,7 @@ echo -e "=======================================================================
 echo -e "Esse script realiza a consulta ao server DNS para resolução de nomes"
 echo -e "Finalidade: Análise de DNS para resolução de nomes"
 echo -e "Owner_script: Thiago Souza"
+echo -e  "interprise: AW-FIBRA"
 echo -e "Script github:https://github.com/thiago031996/Script_DNS_analise"
 
 echo -e "=========================================================================="
@@ -24,21 +25,32 @@ read ip_domain
 printf "\n"
 
 #(dig)ANÁLISE DNS PARA O DOMÍNEO COM OS FILTROS APLICADOS
-echo -e "==============================================================="
+echo -e "=========================================================================="
 
-dig +time=1 +tries=2 @$dns $ip_domain | grep NOERROR && echo O DNS:"$dns" Resolveu o Endereço:"$ip_domain" com sucesso! || echo o DNS: "$dns" não conseguiu resolver o Endereço:"$ip_domain"
-
-echo -e "==============================================================="
+grc dig +time=1 +tries=2 @$dns $ip_domain | grep NOERROR && echo O DNS/IP:"$dns" Resolveu o Endereço:"$ip_domain" com sucesso! || echo o DNS/IP: "$dns" não conseguiu resolver o Endereço:"$ip_domain"
 
 printf "\n"
 
-echo "INFORMAÇÕES DNS:$dns"
+grc dig +time=1 +tries=2 @$dns $ip_domain | tail -n5
 
-inf_dns=$(whois -h whois.cymru.com " -v $dns")
+
+echo -e "=========================================================================="
 
 printf "\n"
 
-echo "$inf_dns" 
+echo " ANALISANDO PORTAS OPEN PARA O DNS/IP INFORMADO..."
+
+#VERIFICA AS PORTAS OPEM PARA O ENDEREÇO DNS / IP 
+grc nmap "$dns"
+
+printf "\n"
+
+echo "INFORMAÇÕES DNS/IP:$dns"
+
+grc whois -h whois.cymru.com " -v $dns"
+
+printf "\n"
+
 
 #CONSULTA REVER
 for ip in "${dns[@]}"; do
@@ -60,3 +72,6 @@ echo " 4 pacotes enviados para:$dns "
 result_ping=$(echo "$ping"| tail -n3)
 
 echo "Dados teste PING:$result_ping"
+
+
+
