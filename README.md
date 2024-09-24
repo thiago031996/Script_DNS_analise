@@ -20,9 +20,10 @@ Certifiquesse de ter instalado os seguintes pacotes:
  whois
  
  #Vrifique se já possui instalado os pacotes dig, whois, grc, nmap com o comando abaixo:
+ 
   dpkg -l | grep whois;dpkg -l | grep dig;dpkg -l | grep grc ; dpkg -l | grep nmap
 
-Caso não tenha os pacotes instalados, faça o download. Comando istalação pacotes abaixo:
+#Caso não tenha os pacotes instalados, faça o download. Comando istalação pacotes abaixo:
  
  sudo apt install dig 
 
